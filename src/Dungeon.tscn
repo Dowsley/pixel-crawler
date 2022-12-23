@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Environment/Dungeon Prison/Assets/Tiles.png" type="Texture" id=1]
 [ext_resource path="res://src/dungeon.gd" type="Script" id=2]
-[ext_resource path="res://src/generators/mode_1.gd" type="Script" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "dungeon_floor"
@@ -431,4 +430,3 @@ tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 script = ExtResource( 2 )
-generator_mode = ExtResource( 3 )

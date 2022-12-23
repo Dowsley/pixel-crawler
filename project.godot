@@ -9,19 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Reference",
 "class": "Generator",
 "language": "GDScript",
-"path": "res://src/generator.gd"
+"path": "res://src/wfc/generator.gd"
 }, {
 "base": "Reference",
-"class": "State",
+"class": "Option",
 "language": "GDScript",
-"path": "res://src/state.gd"
+"path": "res://src/wfc/option.gd"
+}, {
+"base": "Reference",
+"class": "Tile",
+"language": "GDScript",
+"path": "res://src/wfc/tile.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://src/utils.gd"
+}, {
+"base": "Reference",
+"class": "WFC",
+"language": "GDScript",
+"path": "res://src/wfc/WFC.gd"
 } ]
 _global_script_class_icons={
 "Generator": "",
-"State": ""
+"Option": "",
+"Tile": "",
+"Utils": "",
+"WFC": ""
 }
 
 [application]
@@ -29,10 +47,6 @@ _global_script_class_icons={
 config/name="Pixel-crawler"
 run/main_scene="res://src/Dungeon.tscn"
 config/icon="res://assets/icon.png"
-
-[autoload]
-
-States="*res://src/states.gd"
 
 [display]
 

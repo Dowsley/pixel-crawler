@@ -8,6 +8,7 @@ For comparisons.
 
 ## Mode 1: Single-tile-based generation (Ongoing)
 Primitive generation. Will work, but there's much room for improvement.
+- [ ] Optimize code
 
 ## Mode 2: High-level architecture generated layer first, then filling in details with Mode 1 (Planned)
 [![Foo](https://github.com/mxgmn/WaveFunctionCollapse/raw/master/images/rooms.png)](http://google.com.au/)

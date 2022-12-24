@@ -20,12 +20,10 @@ func set_tile(i: int, j: int, t: Tile) -> void:
 
 func collapse_by_pos(i: int, j: int) -> void:
 	var t: Tile = get_tile(i, j)
-	# Choose a random element from array
 	t.options = [Utils.get_random_element(t.options)]
 	t.collapsed = true
 
 func collapse_by_ref(t: Tile) -> void:
-	# Choose a random element from array
 	t.options = [Utils.get_random_element(t.options)]
 	t.collapsed = true
 
@@ -94,28 +92,28 @@ func generate():
 					t = get_tile(i, j-1)
 					valid_for_side = []
 					for opt in t.options:
-						valid_for_side += options[opt].get_options_for("up")
+						valid_for_side += options[opt].get_options_for("down")
 					check_valid(options_local, valid_for_side)
 				# Look right
 				if i < size.x - 1:
 					t = get_tile(i+1, j)
 					valid_for_side = []
 					for opt in t.options:
-						valid_for_side += options[opt].get_options_for("right")
+						valid_for_side += options[opt].get_options_for("left")
 					check_valid(options_local, valid_for_side)
 				# Look down
 				if j < size.y - 1:
 					t = get_tile(i, j+1)
 					valid_for_side = []
 					for opt in t.options:
-						valid_for_side += options[opt].get_options_for("down")
+						valid_for_side += options[opt].get_options_for("up")
 					check_valid(options_local, valid_for_side)
 				# Look left
 				if i > 0:
 					t = get_tile(i-1, j)
 					valid_for_side = []
 					for opt in t.options:
-						valid_for_side += options[opt].get_options_for("left")
+						valid_for_side += options[opt].get_options_for("right")
 					check_valid(options_local, valid_for_side)
 				
 				next_grid[convert_coordinates(i, j)] = Tile.new(options_local)

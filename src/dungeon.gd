@@ -1,6 +1,6 @@
 extends TileMap
 onready var generator := Generator.new()
-onready var size := (OS.window_size / cell_size).ceil()
+onready var size := (get_viewport().get_visible_rect().size / cell_size).ceil()
 
 func generate_map():
 	#generator.print_grid()
@@ -13,7 +13,7 @@ func generate_map():
 					i,
 					j,
 					tile_set.find_tile_by_name(generator.get_tile(i,j).options[0])
-			)
+				)
 
 func _ready():
 	generator.init_grid(size)

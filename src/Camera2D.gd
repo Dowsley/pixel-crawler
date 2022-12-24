@@ -1,6 +1,6 @@
 extends Camera2D
 
-var V := 20
+var V := 10
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):

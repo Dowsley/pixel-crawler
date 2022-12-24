@@ -4,8 +4,7 @@ onready var size := (get_viewport().get_visible_rect().size / cell_size).ceil()
 
 func generate_map():
 	#generator.print_grid()
-	generator.generate()
-	#generator.print_grid()
+	generator.generate(size)
 	for i in size.x:
 		for j in size.y:
 			if generator.get_tile(i,j).collapsed:

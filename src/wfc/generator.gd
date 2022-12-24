@@ -1,6 +1,12 @@
 extends Reference
 class_name Generator
 
+enum ITERATION_RESULT {
+	FAIL,
+	SUCCESS,
+	FINISHED
+}
+
 var options: Dictionary
 var grid := []
 var size: Vector2
@@ -37,6 +43,14 @@ func init_grid(size: Vector2):
 		for y in range(size.y):
 			set_tile(x, y, Tile.new(get_all_options()))
 
+func generate(size: Vector2) -> void:
+	init_grid(size)
+	var result: int = ITERATION_RESULT.FAIL
+	while result != ITERATION_RESULT.FINISHED:
+		result = iterate()
+		if result == ITERATION_RESULT.FAIL:
+			init_grid(size)
+
 func get_lowest_entropy_tile() -> Tile:
 	randomize()
 	
@@ -69,13 +83,13 @@ func print_grid():
 		for y in range(size.y):
 			print(get_tile(x, y).options)
 
-func generate():
-	#collapse_by_pos(0, 0)
-	
+func iterate() -> int:
 	var t: Tile
 	t = get_lowest_entropy_tile()
 	if not t:
-		return
+		return ITERATION_RESULT.FAIL
+	if not t.options.size():
+		return ITERATION_RESULT.FAIL
 	collapse_by_ref(t)
 
 	var next_grid := {}
@@ -118,16 +132,22 @@ func generate():
 				
 				next_grid[convert_coordinates(i, j)] = Tile.new(options_local)
 	
-	update_grid_from(next_grid) 
+	if update_grid_from(next_grid):
+		return ITERATION_RESULT.FINISHED
+	return ITERATION_RESULT.SUCCESS
 
-func update_grid_from(next_grid: Dictionary):
+func update_grid_from(next_grid: Dictionary) -> bool:
 	var keys := next_grid.keys().duplicate()
 	keys.sort()
 
 	var tmp := []
+	var n_collapsed := 0
 	for k in keys:
 		tmp.append(next_grid[k])
+		if tmp[k].collapsed:
+			n_collapsed += 1
 	grid = tmp
+	return grid.size() == n_collapsed
 
 func check_valid(arr: Array, valid: Array):
 	var element

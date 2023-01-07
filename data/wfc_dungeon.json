@@ -1,32 +1,24 @@
 {
-    "dungeon_floor": {
-        "spread": {
-            "left": ["dungeon_floor", "dungeon_floor_W"],
-            "right": ["dungeon_floor", "dungeon_floor_E"],
-            "up": ["dungeon_floor", "dungeon_floor_N"],
-            "down": ["dungeon_floor", "dungeon_floor_S"]
-        }
-    },
     "dungeon_floor_W": {
         "spread": {
             "left": ["dark"],
             "right": ["dungeon_floor"],
-            "up": ["dungeon_floor_W", "dungeon_floor_NW"],
-            "down": ["dungeon_floor_W", "dungeon_floor_SW"]
+            "up": ["dungeon_floor_W", "dungeon_floor_NW", "dungeon_floor_NE_corner"],
+            "down": ["dungeon_floor_W", "dungeon_floor_SW", "dungeon_floor_SE_corner"]
         }
     },
     "dungeon_floor_E": {
         "spread": {
             "left": ["dungeon_floor"],
             "right": ["dark"],
-            "up": ["dungeon_floor_E", "dungeon_floor_NE"],
-            "down": ["dungeon_floor_E", "dungeon_floor_SE"]
+            "up": ["dungeon_floor_E", "dungeon_floor_NE", "dungeon_floor_NW_corner"],
+            "down": ["dungeon_floor_E", "dungeon_floor_SE", "dungeon_floor_SW_corner"]
         }
     },
     "dungeon_floor_N": {
         "spread": {
-            "left": ["dungeon_floor_N", "dungeon_floor_NW"],
-            "right": ["dungeon_floor_N", "dungeon_floor_NE"],
+            "left": ["dungeon_floor_N", "dungeon_floor_NW", "dungeon_floor_SW_corner"],
+            "right": ["dungeon_floor_N", "dungeon_floor_NE", "dungeon_floor_SE_corner"],
             "up": ["dark"],
             "down": ["dungeon_floor"]
         }
@@ -34,7 +26,7 @@
     "dungeon_floor_S": {
         "spread": {
             "left": ["dungeon_floor_S", "dungeon_floor_SW"],
-            "right": ["dungeon_floor_S", "dungeon_floor_SE"],
+            "right": ["dungeon_floor_S", "dungeon_floor_SE", "dungeon_floor_NW_corner", "dungeon_floor_NE_corner"],
             "up": ["dungeon_floor"],
             "down": ["dark"]
         }
@@ -77,6 +69,46 @@
             "right": ["dark", "dungeon_floor_W", "dungeon_floor_NW", "dungeon_floor_SW"],
             "up": ["dark", "dungeon_floor_SW", "dungeon_floor_S", "dungeon_floor_SE"],
             "down": ["dark", "dungeon_floor_NW", "dungeon_floor_N", "dungeon_floor_NE"]
+        }
+    },
+    "dungeon_floor": {
+        "spread": {
+            "left": ["dungeon_floor", "dungeon_floor_W", "dungeon_floor_NE_corner", "dungeon_floor_SE_corner"],
+            "right": ["dungeon_floor", "dungeon_floor_E", "dungeon_floor_NW_corner", "dungeon_floor_SW_corner"],
+            "up": ["dungeon_floor", "dungeon_floor_N", "dungeon_floor_SE_corner", "dungeon_floor_SW_corner"],
+            "down": ["dungeon_floor", "dungeon_floor_S", "dungeon_floor_NW_corner", "dungeon_floor_NE_corner"]
+        }
+    },
+    "dungeon_floor_NW_corner": {
+        "spread": {
+            "left": ["dungeon_floor"],
+            "right": ["dungeon_floor_S"],
+            "up": ["dungeon_floor"],
+            "down": ["dungeon_floor_E"]
+        }
+    },
+    "dungeon_floor_NE_corner": {
+        "spread": {
+            "left": ["dungeon_floor_S"],
+            "right": ["dungeon_floor"],
+            "up": ["dungeon_floor"],
+            "down": ["dungeon_floor_W"]
+        }
+    },
+    "dungeon_floor_SE_corner": {
+        "spread": {
+            "left": ["dungeon_floor_N"],
+            "right": ["dungeon_floor"],
+            "up": ["dungeon_floor_W"],
+            "down": ["dungeon_floor"]
+        }
+    },
+    "dungeon_floor_SW_corner": {
+        "spread": {
+            "left": ["dungeon_floor"],
+            "right": ["dungeon_floor_N"],
+            "up": ["dungeon_floor_E"],
+            "down": ["dungeon_floor"]
         }
     }
 }
